@@ -1,0 +1,301 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Dashboard 
+    link(href='/backend/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/backend/css/datepicker3.css', rel='stylesheet')
+    link(href='/backend/css/styles.css', rel='stylesheet')
+    // Icons
+    script(src='/backend/js/lumino.glyphs.js')
+    //if lt IE 9
+      script(src='/backend/js/html5shiv.js')
+      script(src='/backend/js/respond.min.js')
+  body
+    nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#sidebar-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#')
+            span MEN
+            | Exam
+          ul.user-menu
+            li.dropdown.pull-right
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                svg.glyph.stroked.male-user
+                  use(xlink:href='#stroked-male-user')
+                |  User 
+                span.caret
+              ul.dropdown-menu(role='menu')
+                li
+                  a(href='#')
+                    svg.glyph.stroked.male-user
+                      use(xlink:href='#stroked-male-user')
+                    |  Profile
+                li
+                  a(href='#')
+                    svg.glyph.stroked.gear
+                      use(xlink:href='#stroked-gear')
+                    |  Settings
+                li
+                  a(href='#')
+                    svg.glyph.stroked.cancel
+                      use(xlink:href='#stroked-cancel')
+                    |  Logout
+      // /.container-fluid
+    include part/sidebar.pug
+    // /.sidebar
+    .col-sm-9.col-sm-offset-3.col-lg-10.col-lg-offset-2.main
+      .row
+        ol.breadcrumb
+          li
+            a(href='#')
+              svg.glyph.stroked.home
+                use(xlink:href='#stroked-home')
+          li.active Dashboard
+      // /.row
+      .row
+        .col-lg-12
+          h1.page-header Dashboard
+      // /.row
+      .row
+        .col-xs-12.col-md-6.col-lg-3
+          .panel.panel-blue.panel-widget
+            .row.no-padding
+              .col-sm-3.col-lg-5.widget-left
+                svg.glyph.stroked.bag
+                  use(xlink:href='#stroked-bag')
+              .col-sm-9.col-lg-7.widget-right
+                .large 120
+                .text-muted Siswa Online
+        .col-xs-12.col-md-6.col-lg-3
+          .panel.panel-orange.panel-widget
+            .row.no-padding
+              .col-sm-3.col-lg-5.widget-left
+                svg.glyph.stroked.empty-message
+                  use(xlink:href='#stroked-empty-message')
+              .col-sm-9.col-lg-7.widget-right
+                .large 52
+                .text-muted Comments
+        .col-xs-12.col-md-6.col-lg-3
+          .panel.panel-teal.panel-widget
+            .row.no-padding
+              .col-sm-3.col-lg-5.widget-left
+                svg.glyph.stroked.male-user
+                  use(xlink:href='#stroked-male-user')
+              .col-sm-9.col-lg-7.widget-right
+                .large 24
+                .text-muted New Users
+        .col-xs-12.col-md-6.col-lg-3
+          .panel.panel-red.panel-widget
+            .row.no-padding
+              .col-sm-3.col-lg-5.widget-left
+                svg.glyph.stroked.app-window-with-content
+                  use(xlink:href='#stroked-app-window-with-content')
+              .col-sm-9.col-lg-7.widget-right
+                .large 25.2k
+                .text-muted Page Views
+      // /.row
+      .row
+        .col-lg-12
+          .panel.panel-default
+            .panel-heading Site Traffic Overview
+            .panel-body
+              .canvas-wrapper
+                canvas#line-chart.main-chart(height='200', width='600')
+      // /.row
+      .row
+        .col-xs-6.col-md-3
+          .panel.panel-default
+            .panel-body.easypiechart-panel
+              h4 New Orders
+              #easypiechart-blue.easypiechart(data-percent='92')
+                span.percent 92%
+        .col-xs-6.col-md-3
+          .panel.panel-default
+            .panel-body.easypiechart-panel
+              h4 Comments
+              #easypiechart-orange.easypiechart(data-percent='65')
+                span.percent 65%
+        .col-xs-6.col-md-3
+          .panel.panel-default
+            .panel-body.easypiechart-panel
+              h4 New Users
+              #easypiechart-teal.easypiechart(data-percent='56')
+                span.percent 56%
+        .col-xs-6.col-md-3
+          .panel.panel-default
+            .panel-body.easypiechart-panel
+              h4 Visitors
+              #easypiechart-red.easypiechart(data-percent='27')
+                span.percent 27%
+      // /.row
+      .row
+        .col-md-8
+          .panel.panel-default.chat
+            #accordion.panel-heading
+              svg.glyph.stroked.two-messages
+                use(xlink:href='#stroked-two-messages')
+              |  Chat
+            .panel-body
+              ul
+                li.left.clearfix
+                  span.chat-img.pull-left
+                    img.img-circle(src='http://placehold.it/80/30a5ff/fff', alt='User Avatar')
+                  .chat-body.clearfix
+                    .header
+                      strong.primary-font John Doe
+                      small.text-muted 32 mins ago
+                    p
+                      | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ante turpis, rutrum ut ullamcorper sed, dapibus ac nunc. Vivamus luctus convallis mauris, eu gravida tortor aliquam ultricies.
+                li.right.clearfix
+                  span.chat-img.pull-right
+                    img.img-circle(src='http://placehold.it/80/dde0e6/5f6468', alt='User Avatar')
+                  .chat-body.clearfix
+                    .header
+                      strong.pull-left.primary-font Jane Doe
+                      small.text-muted 6 mins ago
+                    p
+                      | Mauris dignissim porta enim, sed commodo sem blandit non. Ut scelerisque sapien eu mauris faucibus ultrices. Nulla ac odio nisl. Proin est metus, interdum scelerisque quam eu, eleifend pretium nunc. Suspendisse finibus auctor lectus, eu interdum sapien.
+                li.left.clearfix
+                  span.chat-img.pull-left
+                    img.img-circle(src='http://placehold.it/80/30a5ff/fff', alt='User Avatar')
+                  .chat-body.clearfix
+                    .header
+                      strong.primary-font John Doe
+                      small.text-muted 32 mins ago
+                    p
+                      | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ante turpis, rutrum ut ullamcorper sed, dapibus ac nunc. Vivamus luctus convallis mauris, eu gravida tortor aliquam ultricies.
+            .panel-footer
+              .input-group
+                input#btn-input.form-control.input-md(type='text', placeholder='Type your message here...')
+                span.input-group-btn
+                  button#btn-chat.btn.btn-success.btn-md Send
+        // /.col
+        .col-md-4
+          .panel.panel-blue
+            .panel-heading.dark-overlay
+              svg.glyph.stroked.clipboard-with-paper
+                use(xlink:href='#stroked-clipboard-with-paper')
+              | To-do List
+            .panel-body
+              ul.todo-list
+                li.todo-list-item
+                  .checkbox
+                    input#checkbox(type='checkbox')
+                    label(for='checkbox') Make a plan for today
+                  .pull-right.action-buttons
+                    a(href='#')
+                      svg.glyph.stroked.pencil
+                        use(xlink:href='#stroked-pencil')
+                    a.flag(href='#')
+                      svg.glyph.stroked.flag
+                        use(xlink:href='#stroked-flag')
+                    a.trash(href='#')
+                      svg.glyph.stroked.trash
+                        use(xlink:href='#stroked-trash')
+                li.todo-list-item
+                  .checkbox
+                    input#checkbox(type='checkbox')
+                    label(for='checkbox') Update Basecamp
+                  .pull-right.action-buttons
+                    a(href='#')
+                      svg.glyph.stroked.pencil
+                        use(xlink:href='#stroked-pencil')
+                    a.flag(href='#')
+                      svg.glyph.stroked.flag
+                        use(xlink:href='#stroked-flag')
+                    a.trash(href='#')
+                      svg.glyph.stroked.trash
+                        use(xlink:href='#stroked-trash')
+                li.todo-list-item
+                  .checkbox
+                    input#checkbox(type='checkbox')
+                    label(for='checkbox') Send email to Jane
+                  .pull-right.action-buttons
+                    a(href='#')
+                      svg.glyph.stroked.pencil
+                        use(xlink:href='#stroked-pencil')
+                    a.flag(href='#')
+                      svg.glyph.stroked.flag
+                        use(xlink:href='#stroked-flag')
+                    a.trash(href='#')
+                      svg.glyph.stroked.trash
+                        use(xlink:href='#stroked-trash')
+                li.todo-list-item
+                  .checkbox
+                    input#checkbox(type='checkbox')
+                    label(for='checkbox') Drink coffee
+                  .pull-right.action-buttons
+                    a(href='#')
+                      svg.glyph.stroked.pencil
+                        use(xlink:href='#stroked-pencil')
+                    a.flag(href='#')
+                      svg.glyph.stroked.flag
+                        use(xlink:href='#stroked-flag')
+                    a.trash(href='#')
+                      svg.glyph.stroked.trash
+                        use(xlink:href='#stroked-trash')
+                li.todo-list-item
+                  .checkbox
+                    input#checkbox(type='checkbox')
+                    label(for='checkbox') Do some work
+                  .pull-right.action-buttons
+                    a(href='#')
+                      svg.glyph.stroked.pencil
+                        use(xlink:href='#stroked-pencil')
+                    a.flag(href='#')
+                      svg.glyph.stroked.flag
+                        use(xlink:href='#stroked-flag')
+                    a.trash(href='#')
+                      svg.glyph.stroked.trash
+                        use(xlink:href='#stroked-trash')
+                li.todo-list-item
+                  .checkbox
+                    input#checkbox(type='checkbox')
+                    label(for='checkbox') Tidy up workspace
+                  .pull-right.action-buttons
+                    a(href='#')
+                      svg.glyph.stroked.pencil
+                        use(xlink:href='#stroked-pencil')
+                    a.flag(href='#')
+                      svg.glyph.stroked.flag
+                        use(xlink:href='#stroked-flag')
+                    a.trash(href='#')
+                      svg.glyph.stroked.trash
+                        use(xlink:href='#stroked-trash')
+            .panel-footer
+              .input-group
+                input#btn-input.form-control.input-md(type='text', placeholder='Add new task')
+                span.input-group-btn
+                  button#btn-todo.btn.btn-primary.btn-md Add
+        // /.col
+      // /.row
+    // /.main
+    script(src='/backend/js/jquery-1.11.1.min.js')
+    script(src='/backend/js/bootstrap.min.js')
+    script(src='/backend/js/chart.min.js')
+    script(src='/backend/js/chart-data.js')
+    script(src='/backend/js/easypiechart.js')
+    script(src='/backend/js/easypiechart-data.js')
+    script(src='/backend/js/bootstrap-datepicker.js')
+    script.
+      $('#calendar').datepicker({
+      });
+      !function ($) {
+      $(document).on("click","ul.nav li.parent > a > span.icon", function(){
+      $(this).find('em:first').toggleClass("glyphicon-minus");
+      });
+      $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+      }(window.jQuery);
+      $(window).on('resize', function () {
+      if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+      })
+      $(window).on('resize', function () {
+      if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+      })

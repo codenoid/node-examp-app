@@ -1,0 +1,54 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Lumino - Dashboard
+    link(href='/backend/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/backend/css/datepicker3.css', rel='stylesheet')
+    link(href='/backend/css/styles.css', rel='stylesheet')
+    // Icons
+    script(src='/backend/js/lumino.glyphs.js')
+    //if lt IE 9
+      script(src='/backend/js/html5shiv.js')
+      script(src='/backend/js/respond.min.js')
+  body
+    include part/nav.pug
+      // /.container-fluid
+    include part/sidebar.pug
+    // /.sidebar
+    .col-sm-9.col-sm-offset-3.col-lg-10.col-lg-offset-2.main
+      .row
+        ol.breadcrumb
+          li
+            a(href='#')
+              svg.glyph.stroked.home
+                use(xlink:href='#stroked-home')
+          li.active Ujian &amp; Jadwal
+      // /.row
+      .row
+        .col-lg-12
+          h1.page-header Ujian &amp; Jadwal
+      // /.row
+      .panel.panel-default
+        .panel-heading Daftar Ujian
+        .panel-body.table-responsive
+          table.table.table-bordered.table-striped(data-toggle='table', data-url='tables/data1.json', data-show-refresh='true', data-show-toggle='true', data-show-columns='true', data-search='true', data-select-item-name='toolbar1', data-pagination='true', data-sort-name='name', data-sort-order='desc')
+            thead
+              tr
+                th(data-field='state', data-checkbox='true') Item ID
+                th(data-field='id', data-sortable='true') Item ID
+                th(data-field='name', data-sortable='true') Item Name
+                th(data-field='price', data-sortable='true') Item Price
+            tbody
+              tr
+                td fwa
+                td fwa
+                td fwa
+                td fwa
+
+      // /.row
+    // /.main
+    script(src='/backend/js/jquery-1.11.1.min.js')
+    script(src='/backend/js/bootstrap.min.js')
+    script(src='/backend/js/bootstrap-table.js')

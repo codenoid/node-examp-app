@@ -1,0 +1,52 @@
+doctype html
+html
+  head
+    title Ujian Online 2017 - Rubi Jihantoro
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css')
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    style.
+      body 		{ padding-top:80px; word-wrap:break-word; }
+  body
+    .container
+      .page-header.text-center
+        h1
+          |  Ujian Akhir Semester 2017 - !{ user }
+        // a.btn.btn-default.btn-sm(href='/logout') Logout
+      - for (var i=0; i< soal.length; i++)
+        .row(qid=soal[i].id, class='p', data-toggle='modal', data-target='#myModal')
+          .col-sm-12
+            .well
+              h3 !{ i+1 }.
+                |  !{ soal[i].question }
+              br
+
+    #myModal.modal.fade(role='dialog')
+      .modal-dialog
+        // Modal content
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal') ×
+            h4.modal-title Pertanyaan Nomor 1
+          .modal-body
+            p Jika ada sebuah rasi bintang yang berurutan dengan rangkaian kata yang di katakan oleh tuhan, maka ?
+            p.toblock
+              a
+                b A
+                | &nbsp; Bintang akan terbang
+              a
+                b B
+                | &nbsp; Kucing akan terlempar
+              a.choosed
+                b C
+                | &nbsp; Alien datang
+              a
+                b D
+                | &nbsp; Ayam goreng nya di rebus
+
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal') Tutup
+
+    script(type='text/javascript', src='/bundle.js')
+    script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(type='text/javascript', src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')

@@ -1,0 +1,182 @@
+doctype html
+html
+  head(f=pengguna.length)
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Dashboard 
+    link(href='/backend/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/backend/css/datepicker3.css', rel='stylesheet')
+    link(href='/backend/css/styles.css', rel='stylesheet')
+    // Icons
+    script(src='/backend/js/lumino.glyphs.js')
+    //if lt IE 9
+      script(src='/backend/js/html5shiv.js')
+      script(src='/backend/js/respond.min.js')
+  body
+    nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#sidebar-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#')
+            span MEN
+            | Exam
+          ul.user-menu
+            li.dropdown.pull-right
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                svg.glyph.stroked.male-user
+                  use(xlink:href='#stroked-male-user')
+                |  User 
+                span.caret
+              ul.dropdown-menu(role='menu')
+                li
+                  a(href='#')
+                    svg.glyph.stroked.male-user
+                      use(xlink:href='#stroked-male-user')
+                    |  Profile
+                li
+                  a(href='#')
+                    svg.glyph.stroked.gear
+                      use(xlink:href='#stroked-gear')
+                    |  Settings
+                li
+                  a(href='#')
+                    svg.glyph.stroked.cancel
+                      use(xlink:href='#stroked-cancel')
+                    |  Logout
+      // /.container-fluid
+    include part/sidebar.pug
+    // /.sidebar
+    .col-sm-9.col-sm-offset-3.col-lg-10.col-lg-offset-2.main
+      .row
+        ol.breadcrumb
+          li
+            a(href='#')
+              svg.glyph.stroked.home
+                use(xlink:href='#stroked-home')
+          li.active Pengguna
+      // /.row
+      .row
+        .col-lg-12
+          h2.page-header Pengguna
+      // /.row
+      .row.cursor
+        .col-xs-12.col-md-6.col-lg-3(panel-info='pengguna')
+          .active.panel.panel-blue.panel-widget
+            .row.no-padding
+              .col-sm-3.col-lg-5.widget-left
+                svg.glyph.stroked.pencil
+                  use(xlink:href='#stroked-pencil')
+              .col-sm-9.col-lg-7.widget-right
+                .large 120
+                .text-muted Pengguna
+        .col-xs-12.col-md-6.col-lg-3(panel-info='pengawas')
+          .panel.panel-orange.panel-widget
+            .row.no-padding
+              .col-sm-3.col-lg-5.widget-left
+                svg.glyph.stroked.chain
+                  use(xlink:href='#stroked-chain')
+              .col-sm-9.col-lg-7.widget-right
+                .large 52
+                .text-muted Pengawas
+        .col-xs-12.col-md-6.col-lg-3(panel-info='petugas')
+          .panel.panel-teal.panel-widget
+            .row.no-padding
+              .col-sm-3.col-lg-5.widget-left
+                svg.glyph.stroked.male-user
+                  use(xlink:href='#stroked-male-user')
+              .col-sm-9.col-lg-7.widget-right
+                .large 24
+                .text-muted Petugas
+        .col-xs-12.col-md-6.col-lg-3(panel-info='admin')
+          .panel.panel-red.panel-widget
+            .row.no-padding
+              .col-sm-3.col-lg-5.widget-left
+                svg.glyph.stroked.app-window-with-content
+                  use(xlink:href='#stroked-app-window-with-content')
+              .col-sm-9.col-lg-7.widget-right
+                .large 25.2k
+                .text-muted Admin
+      .panel.panel-default
+        .panel-heading Pengguna
+        .panel-body.table-responsive
+          table.table.table-bordered.table-striped(data-toggle='table', data-url='tables/data1.json', data-show-refresh='true', data-show-toggle='true', data-show-columns='true', data-search='true', data-select-item-name='toolbar1', data-pagination='true', data-sort-name='name', data-sort-order='desc', table-for='pengguna')
+            thead
+              tr
+                th(data-field='state', data-checkbox='true') No
+                th(data-field='id', data-sortable='true') Nama Grup
+                th(data-field='name', data-sortable='true') Deskripsi
+                th(data-field='price', data-sortable='true') Jumlah Pengguna
+                th(data-field='price', data-sortable='true') Aksi
+            tbody
+              tr
+              - var o = 0;
+              - for (var i=0; i < pengguna.length; i++)
+                - var d = JSON.parse(pengguna[i].content)
+                td !{ i+1 }
+                td !{ pengguna[i].identity }
+                td !{ d.description }
+                td !{ useringroup(pengguna[i].id) }
+                td fwa
+          table.hidden.table.table-bordered.table-striped(data-toggle='table', data-url='tables/data1.json', data-show-refresh='true', data-show-toggle='true', data-show-columns='true', data-search='true', data-select-item-name='toolbar1', data-pagination='true', data-sort-name='name', data-sort-order='desc', table-for='pengawas')
+            thead
+              tr
+                th(data-field='state', data-checkbox='true') No
+                th(data-field='id', data-sortable='true') Nama Grup
+                th(data-field='name', data-sortable='true') Jumlah Pengguna
+                th(data-field='price', data-sortable='true') Aksi
+            tbody
+              tr
+                td fwafw
+                td fwa
+                td fwa
+                td fwa
+          table.hidden.table.table-bordered.table-striped(data-toggle='table', data-url='tables/data1.json', data-show-refresh='true', data-show-toggle='true', data-show-columns='true', data-search='true', data-select-item-name='toolbar1', data-pagination='true', data-sort-name='name', data-sort-order='desc', table-for='petugas')
+            thead
+              tr
+                th(data-field='state', data-checkbox='true') No
+                th(data-field='id', data-sortable='true') Nama Grup
+                th(data-field='name', data-sortable='true') Jumlah Pengguna
+                th(data-field='price', data-sortable='true') Aksi
+            tbody
+              tr
+                td fwaea
+                td fwa
+                td fwa
+                td fwa
+          table.hidden.table.table-bordered.table-striped(data-toggle='table', data-url='tables/data1.json', data-show-refresh='true', data-show-toggle='true', data-show-columns='true', data-search='true', data-select-item-name='toolbar1', data-pagination='true', data-sort-name='name', data-sort-order='desc', table-for='admin')
+            thead
+              tr
+                th(data-field='state', data-checkbox='true') No
+                th(data-field='id', data-sortable='true') Nama Grup
+                th(data-field='name', data-sortable='true') Jumlah Pengguna
+                th(data-field='price', data-sortable='true') Aksi
+            tbody
+              tr
+                td fwa
+                td fwa
+                td fwa
+                td fwa
+
+    // /.main
+    script(src='/backend/js/jquery-1.11.1.min.js')
+    script(src='/backend/js/bootstrap.min.js')
+    script(src='/backend/js/app.js')
+    script.
+      $('#calendar').datepicker({
+      });
+      !function ($) {
+      $(document).on("click","ul.nav li.parent > a > span.icon", function(){
+      $(this).find('em:first').toggleClass("glyphicon-minus");
+      });
+      $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+      }(window.jQuery);
+      $(window).on('resize', function () {
+      if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+      })
+      $(window).on('resize', function () {
+      if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+      })

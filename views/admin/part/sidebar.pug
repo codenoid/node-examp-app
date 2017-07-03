@@ -1,0 +1,45 @@
+#sidebar-collapse.col-sm-3.col-lg-2.sidebar
+      form(role='search')
+        .form-group
+          input.form-control(type='text', placeholder='Cari')
+      ul.nav.menu
+        li(class=path=='/admin'?'active':undefined)
+          a(href='/admin')
+            svg.glyph.stroked.dashboard-dial
+              use(xlink:href='#stroked-dashboard-dial')
+            |  Dashboard
+        li(class=path=='/admin/ujian'?'active':undefined)
+          a(href='/admin/ujian')
+            svg.glyph.stroked.calendar
+              use(xlink:href='#stroked-calendar')
+            |  Ujian &amp; Jadwal
+        li(class=path=='/'?'/admin/soal':undefined)
+          a(href='/admin/soal')
+            svg.glyph.stroked-notepad.notepad
+              use(xlink:href='#stroked-notepad')
+            |  Bank Soal
+        li(class=path=='/admin/pengguna'?'active':undefined)
+          a(href='/admin/pengguna')
+            svg.glyph.stroked.male-user
+              use(xlink:href='#stroked-male-user')
+            |  Pengguna
+        li(class=path=='/admin/pusat-pemberitahuan'?'active':undefined)
+          a(href='/admin/pusat-pemberitahuan')
+            svg.glyph.stroked.sound-on
+              use(xlink:href='#stroked-sound-on')
+            |  Pusat Pemberitahuan
+        li(class=path=='/admin/export-import'?'active':undefined)
+          a(href='/admin/export-import')
+            svg.glyph.stroked.app-window
+              use(xlink:href='#stroked-app-window')
+            |  Export / Import
+        li(class=path=='/admin/pengaturan'?'active':undefined)
+          a(href='/admin/pengaturan')
+            svg.glyph.stroked.gear
+              use(xlink:href='#stroked-gear')
+            |  Pengaturan
+      .attribution
+        | App By 
+        a(href='https://kafarah.id/') Kafarah Indonesia
+        br
+        a(href='https://jihantoro.net/', style='color: #333;') Rubi Jihantoro

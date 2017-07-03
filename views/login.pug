@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    title Masuk - Ujian Online
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    // load bootstrap css
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css')
+    // load fontawesome
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    style.
+      body 		{ padding-top:80px; }
+  body
+    .container
+      .col-sm-6.col-sm-offset-3
+        h1
+          span.fa.fa-sign-in
+          |  Masuk Ujian
+        // LOGIN FORM
+        form(action='/login', method='post')
+          .form-group
+            label Nama Pengguna
+            input.form-control(type='text', name='username', placeholder='Masukkan nama pengguna anda')
+          .form-group
+            label Kata Sandi
+            input.form-control(type='password', name='password', placeholder='Masukkan password anda')
+          button.btn.btn-warning(type='submit') Login
+          div(style='float:right;')
+            a.btn.btn-info(style='margin-right:5px;') Petunjuk
+            a.btn.btn-primary Peraturan

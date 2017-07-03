@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background:#3176B1;
+  background:-webkit-linear-gradient(left,#3176B1,#3cf);
+  background:-webkit-linear-gradient(left, #3176B1, #3cf);
+  background:linear-gradient(to right,#3176B1,#3cf);
+
+
+}
+h1, a, p {
+	font-family: 'Open Sans', sans-serif !important;
+}
+a {
+  color: #00B7FF;
+}
+
+.p {cursor: pointer;}
+.well {background-color: rgba(225,225,225,0.8);transition:0.2s;}
+.well:hover{box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);background-color: rgba(225,225,225,0.9);}
+.amodal {width: 100%;height: 100%;background-color: rgba(34,34,34,0.5);position: fixed;left: 0%;top: 0%;z-index: 2;display: block;}
+.toblock a {display: block;cursor: pointer;text-decoration: none;}
+.toblock a.choosed {font-weight: bold;color: black;}
+label,h1{color: white;}
+.btn{color: #eee;}
